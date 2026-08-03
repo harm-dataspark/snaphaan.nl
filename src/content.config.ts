@@ -8,6 +8,7 @@ const teksten = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     type: z.enum(['gedicht', 'gedachte', 'verhaal']),
+    tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),
 });

@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const teksten = (await getCollection('teksten', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const dateFormat = new Intl.DateTimeFormat('nl-NL', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<BaseLayout>
+  <section class="intro">
+    <p>Gedichten, gedachten en verhalen.</p>
+  </section>
+
+  <section class="archive" aria-label="Teksten">
+    {teksten.map((tekst) => (
+      <article class="archive-item">
+        <div class="meta">
+          <time datetime={tekst.data.date.toISOString()}>{dateFormat.format(tekst.data.date)}</time>
+          <span>{tekst.data.type}</span>
+        </div>
+        <div>
+          <h2><a href={`/teksten/${tekst.id}/`}>{tekst.data.title}</a></h2>
+          <p>{tekst.data.description}</p>
+        </div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

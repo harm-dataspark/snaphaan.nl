@@ -3,6 +3,8 @@ title: De appel en de boom
 description: Jong geleerd, oud gedaan
 date: 2026-08-03
 type: gedicht
+tags:
+  - familie
 ---
 
 Jong geleerd  

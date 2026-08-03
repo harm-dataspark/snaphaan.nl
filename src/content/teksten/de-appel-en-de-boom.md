@@ -1,7 +1,7 @@
 ---
 title: De appel en de boom
 description: Jong geleerd, oud gedaan
-date: 2026-07-13
+date: 2026-08-03
 type: gedicht
 ---
 

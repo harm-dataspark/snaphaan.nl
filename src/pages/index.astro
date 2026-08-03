@@ -55,10 +55,10 @@ const dateFormat = new Intl.DateTimeFormat('nl-NL', {
   </section>
 
   <script>
-    const buttons = [...document.querySelectorAll('[data-filter]')];
-    const items = [...document.querySelectorAll('[data-filter-values]')];
+    const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    const items = [...document.querySelectorAll<HTMLElement>('[data-filter-values]')];
 
-    function applyFilter(filter) {
+    function applyFilter(filter: string) {
       for (const item of items) {
         const values = item.dataset.filterValues?.split('|') ?? [];
         item.hidden = filter !== 'all' && !values.includes(filter);

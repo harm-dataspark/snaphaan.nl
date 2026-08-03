@@ -23,19 +23,17 @@ const dateFormat = new Intl.DateTimeFormat('nl-NL', {
         <time datetime={tekst.data.date.toISOString()}>{dateFormat.format(tekst.data.date)}</time>
         <span>{tekst.data.type}</span>
       </div>
-      <div class="title-block">
-        <h1>{tekst.data.title}</h1>
-        {tekst.data.tags.length > 0 && (
-          <div class="post-tags" aria-label="Tags">
-            {tekst.data.tags.map((tag) => (
-              <a href={`/?filter=tag:${encodeURIComponent(tag)}`}>{tag}</a>
-            ))}
-          </div>
-        )}
-      </div>
+      <h1>{tekst.data.title}</h1>
     </header>
     <div class:list={['prose', `prose--${tekst.data.type}`]}>
       <Content />
     </div>
+    {tekst.data.tags.length > 0 && (
+      <div class="post-tags" aria-label="Tags">
+        {tekst.data.tags.map((tag) => (
+          <a href={`/?filter=tag:${encodeURIComponent(tag)}`}>{tag}</a>
+        ))}
+      </div>
+    )}
   </article>
 </BaseLayout>

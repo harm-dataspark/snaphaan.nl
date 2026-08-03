@@ -234,3 +234,15 @@ footer {
 .post-tags a:hover {
   text-decoration: underline;
 }
+
+
+.text-page > .post-tags {
+  max-width: 650px;
+  margin: 48px 0 0 190px;
+}
+
+@media (max-width: 680px) {
+  .text-page > .post-tags {
+    margin-left: 0;
+  }
+}

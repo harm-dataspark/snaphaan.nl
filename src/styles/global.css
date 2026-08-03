@@ -185,3 +185,52 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  padding-block: 0 22px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.filters button {
+  padding: 0;
+  border: 0;
+  color: var(--muted);
+  background: transparent;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.filters button:hover,
+.filters button[aria-pressed='true'] {
+  color: var(--accent);
+}
+
+.archive-item[hidden] {
+  display: none;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 22px;
+  color: var(--accent);
+  font-size: 0.88rem;
+}
+
+.post-tags a {
+  text-decoration: none;
+}
+
+.post-tags a::before {
+  content: '#';
+}
+
+.post-tags a:hover {
+  text-decoration: underline;
+}

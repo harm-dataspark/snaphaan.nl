@@ -5,6 +5,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const teksten = (await getCollection('teksten', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
+const types = [...new Set(teksten.map((tekst) => tekst.data.type))].sort();
+const tags = [...new Set(teksten.flatMap((tekst) => tekst.data.tags))].sort();
+const filterOptions = [
+  ...(types.length > 1 ? types.map((value) => ({ label: value, value: `type:${value}` })) : []),
+  ...(tags.length > 1 ? tags.map((value) => ({ label: value, value: `tag:${value}` })) : []),
+];
+
 const dateFormat = new Intl.DateTimeFormat('nl-NL', {
   day: 'numeric',
   month: 'long',
@@ -17,9 +24,24 @@ const dateFormat = new Intl.DateTimeFormat('nl-NL', {
     <p>Gedichten, gedachten en verhalen.</p>
   </section>
 
+  {filterOptions.length > 0 && (
+    <div class="filters" aria-label="Filter teksten">
+      <button type="button" data-filter="all" aria-pressed="true">alles</button>
+      {filterOptions.map((filter) => (
+        <button type="button" data-filter={filter.value} aria-pressed="false">{filter.label}</button>
+      ))}
+    </div>
+  )}
+
   <section class="archive" aria-label="Teksten">
     {teksten.map((tekst) => (
-      <article class="archive-item">
+      <article
+        class="archive-item"
+        data-filter-values={[
+          `type:${tekst.data.type}`,
+          ...tekst.data.tags.map((tag) => `tag:${tag}`),
+        ].join('|')}
+      >
         <div class="meta">
           <time datetime={tekst.data.date.toISOString()}>{dateFormat.format(tekst.data.date)}</time>
           <span>{tekst.data.type}</span>
@@ -31,4 +53,34 @@ const dateFormat = new Intl.DateTimeFormat('nl-NL', {
       </article>
     ))}
   </section>
+
+  <script>
+    const buttons = [...document.querySelectorAll('[data-filter]')];
+    const items = [...document.querySelectorAll('[data-filter-values]')];
+
+    function applyFilter(filter) {
+      for (const item of items) {
+        const values = item.dataset.filterValues?.split('|') ?? [];
+        item.hidden = filter !== 'all' && !values.includes(filter);
+      }
+
+      for (const button of buttons) {
+        button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
+      }
+
+      const url = new URL(window.location.href);
+      if (filter === 'all') url.searchParams.delete('filter');
+      else url.searchParams.set('filter', filter);
+      window.history.replaceState({}, '', url);
+    }
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => applyFilter(button.dataset.filter ?? 'all'));
+    }
+
+    const requestedFilter = new URL(window.location.href).searchParams.get('filter');
+    if (requestedFilter && buttons.some((button) => button.dataset.filter === requestedFilter)) {
+      applyFilter(requestedFilter);
+    }
+  </script>
 </BaseLayout>

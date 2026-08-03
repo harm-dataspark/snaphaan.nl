@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const teksten = await getCollection('teksten', ({ data }) => !data.draft);
+  return teksten.map((tekst) => ({ params: { id: tekst.id }, props: { tekst } }));
+}
+
+const { tekst } = Astro.props;
+const { Content } = await render(tekst);
+const dateFormat = new Intl.DateTimeFormat('nl-NL', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<BaseLayout title={tekst.data.title} description={tekst.data.description}>
+  <article class="text-page">
+    <header>
+      <div class="meta">
+        <time datetime={tekst.data.date.toISOString()}>{dateFormat.format(tekst.data.date)}</time>
+        <span>{tekst.data.type}</span>
+      </div>
+      <h1>{tekst.data.title}</h1>
+    </header>
+    <div class:list={['prose', `prose--${tekst.data.type}`]}>
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

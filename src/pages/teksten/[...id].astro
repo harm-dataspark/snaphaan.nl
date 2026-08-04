@@ -35,5 +35,10 @@ const dateFormat = new Intl.DateTimeFormat('nl-NL', {
         ))}
       </div>
     )}
+    {tekst.data.card && (
+      <a class="card-download" href={`/cards/${tekst.id}.png`} download>
+        Download kaart
+      </a>
+    )}
   </article>
 </BaseLayout>

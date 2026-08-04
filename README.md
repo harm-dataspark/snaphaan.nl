@@ -12,12 +12,17 @@ title: Mijn verhaal
 description: Een korte omschrijving.
 date: 2026-08-03
 type: verhaal
+tags:
+  - voorbeeld
+card: true
 ---
 
 Hier begint de tekst.
 ```
 
-`type` kan `gedicht`, `gedachte` of `verhaal` zijn. Voeg `draft: true` toe om een tekst nog niet te publiceren.
+`type` kan `gedicht`, `gedachte` of `verhaal` zijn. Tags zijn vrij te kiezen en mogen ook worden weggelaten. Voeg `draft: true` toe om een tekst nog niet te publiceren.
+
+Met `card: true` wordt automatisch een deelbare PNG van 1080 × 1350 gemaakt. Op de tekstpagina verschijnt dan de link **Download kaart**. Laat `card` weg wanneer je geen kaart nodig hebt.
 
 ## Lokaal bekijken
 

@@ -9,9 +9,13 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@fontsource/crimson-pro": "^5.2.8",
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/node": "^24.1.0",
     "@astrojs/check": "^0.9.4",
     "@astrojs/rss": "^4.0.12",
     "astro": "^5.12.8",
+    "satori": "^0.16.1",
     "typescript": "^5.8.3"
   }
 }

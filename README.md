@@ -231,7 +231,7 @@ De tekst wordt dan wel in GitHub bewaard, maar niet gepubliceerd. Verander dit l
 
 ## Bewuste ontwerpkeuzes
 
-- **Lettertype:** Crimson Pro, gekozen omdat het rustig leest voor zowel gedichten als langere verhalen en ook geschikt is voor boektekst.
+- **Lettertype:** Crimson Pro, gekozen omdat het rustig leest voor zowel gedichten als langere verhalen en ook geschikt is voor boektekst. De gebruikte letterbestanden worden lokaal vanaf `snaphaan.nl` geladen; de website maakt hiervoor geen verbinding met Google Fonts.
 - **Kleur:** warm papier, donkere inkt en één gedempt rood accent.
 - **Rode punt:** de punt in `Harm.` is het vaste herkenningsteken op de website, Over-pagina en kaarten.
 - **Rust:** tags staan onder de tekst; opmaak en tabellen zijn terughoudend; markeringen hebben één vaste kleur.

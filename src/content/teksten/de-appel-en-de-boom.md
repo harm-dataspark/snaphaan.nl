@@ -5,6 +5,7 @@ date: 2026-08-03
 type: gedicht
 tags:
   - familie
+card: true
 ---
 
 Jong geleerd  
@@ -18,4 +19,4 @@ Zo vader
 Zo zoon  
 
 De een de appel  
-De ander de boom  
+De ander de boom

@@ -9,6 +9,7 @@ const teksten = defineCollection({
     date: z.coerce.date(),
     type: z.enum(['gedicht', 'gedachte', 'verhaal']),
     tags: z.array(z.string()).default([]),
+    card: z.boolean().default(false),
     draft: z.boolean().default(false),
   }),
 });

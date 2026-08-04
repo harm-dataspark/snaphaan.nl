@@ -1,6 +1,6 @@
 ---
 title: De appel en de boom
-description: Over wat we meekrijgen en doorgeven
+description: Over wat we meekrijgen en doorgeven.
 date: 2026-08-04
 type: gedicht
 tags:

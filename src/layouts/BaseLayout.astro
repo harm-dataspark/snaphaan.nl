@@ -25,7 +25,7 @@ const pageTitle = title ? `${title} — Harm` : 'Harm — gedichten, gedachten e
   </head>
   <body>
     <header class="site-header">
-      <a class="wordmark" href="/" aria-label="Naar de homepage">Harm.</a>
+      <a class="wordmark" href="/" aria-label="Naar de homepage">Harm<span aria-hidden="true">.</span></a>
       <nav aria-label="Hoofdnavigatie">
         <a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>Teksten</a>
         <a href="/over" aria-current={Astro.url.pathname === '/over/' ? 'page' : undefined}>Over</a>

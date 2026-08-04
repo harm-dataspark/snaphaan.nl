@@ -172,6 +172,21 @@ h1 {
 
 .signature span { color: var(--accent); }
 
+.prose .postscript {
+  margin-top: 2.2em;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.postscript > span { color: var(--accent); }
+
+.postscript a {
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+}
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -303,4 +318,3 @@ footer {
 @media (max-width: 680px) {
   .text-page > .post-tags,
   .card-download { margin-left: 0; }
-}

@@ -66,7 +66,7 @@ function typography(text: string, markdown: string) {
   if (text.length > 850) return { body: 32, lineHeight: 1.35, gap: 24 };
   if (text.length > 600) return { body: 36, lineHeight: 1.38, gap: 26 };
   if (text.length > 400) return { body: 42, lineHeight: 1.38, gap: 28 };
-  return { body: 48, lineHeight: 1.35, gap: 32 };
+  return { body: 44, lineHeight: 1.4, gap: 32 };
 }
 
 function span(children: CardNode | CardNode[], style: Record<string, unknown> = {}): CardNode {

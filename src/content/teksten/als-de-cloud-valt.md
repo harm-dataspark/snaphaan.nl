@@ -6,7 +6,7 @@ type: gedicht
 tags:
   - technologie
 card: true
-draft: false
+draft: true
 ---
 
 *Wat als…*

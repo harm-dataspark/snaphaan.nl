@@ -217,7 +217,7 @@ https://snaphaan.nl/cards/de-appel-en-de-boom.png
 
 De kaartgenerator neemt de ondersteunde Markdown-opmaak mee. Cursief, vet, onderstrepen, doorstrepen, markeren, links, tussenkoppen, scheidingslijnen, lijsten en tabellen krijgen ook op de kaart een passende vorm in dezelfde beeldtaal. Opmaak die op een kaart niet interactief kan zijn, zoals een link, wordt alleen visueel weergegeven.
 
-De lettergrootte wordt op basis van de tekstlengte automatisch aangepast. De functie is vooral bedoeld voor gedichten en korte gedachten. Controleer langere of complex opgemaakte teksten altijd visueel; een volledig verhaal is meestal te lang voor één kaart.
+Korte gedichten en gedachten gebruiken één vaste tekstgrootte, regelhoogte en witruimte tussen alinea's of strofen. Daardoor vormen verschillende kaarten visueel één serie. Pas bij werkelijk langere of complex opgemaakte teksten wordt de typografie stapsgewijs verkleind. De functie is vooral bedoeld voor gedichten en korte gedachten. Controleer langere of complex opgemaakte teksten altijd visueel; een volledig verhaal is meestal te lang voor één kaart.
 
 Laat `card` weg of gebruik `card: false` wanneer geen kaart nodig is.
 

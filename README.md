@@ -215,7 +215,9 @@ Een bestand met de naam `de-appel-en-de-boom.md` krijgt dus:
 https://snaphaan.nl/cards/de-appel-en-de-boom.png
 ```
 
-De kaartgenerator verwijdert Markdown-opmaak en kiest op basis van de tekstlengte automatisch een passende lettergrootte. De functie is vooral bedoeld voor gedichten en korte gedachten. Controleer langere teksten altijd visueel; een volledig verhaal is meestal te lang voor één kaart.
+De kaartgenerator neemt de ondersteunde Markdown-opmaak mee. Cursief, vet, onderstrepen, doorstrepen, markeren, links, tussenkoppen, scheidingslijnen, lijsten en tabellen krijgen ook op de kaart een passende vorm in dezelfde beeldtaal. Opmaak die op een kaart niet interactief kan zijn, zoals een link, wordt alleen visueel weergegeven.
+
+De lettergrootte wordt op basis van de tekstlengte automatisch aangepast. De functie is vooral bedoeld voor gedichten en korte gedachten. Controleer langere of complex opgemaakte teksten altijd visueel; een volledig verhaal is meestal te lang voor één kaart.
 
 Laat `card` weg of gebruik `card: false` wanneer geen kaart nodig is.
 

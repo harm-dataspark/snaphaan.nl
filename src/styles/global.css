@@ -160,6 +160,16 @@ h1 {
 .about-page h1 { max-width: 650px; }
 .about-page .prose { margin-top: 56px; }
 
+.signature {
+  margin-top: 2.4em;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.signature span { color: var(--accent); }
+
 footer {
   display: flex;
   justify-content: space-between;

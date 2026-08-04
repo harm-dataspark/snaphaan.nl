@@ -48,6 +48,8 @@ footer {
   letter-spacing: -0.02em;
 }
 
+.wordmark span { color: var(--accent); }
+
 nav { display: flex; gap: 28px; }
 
 nav a,
@@ -186,7 +188,6 @@ footer {
   html { scroll-behavior: auto; }
 }
 
-
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -206,13 +207,9 @@ footer {
 }
 
 .filters button:hover,
-.filters button[aria-pressed='true'] {
-  color: var(--accent);
-}
+.filters button[aria-pressed='true'] { color: var(--accent); }
 
-.archive-item[hidden] {
-  display: none;
-}
+.archive-item[hidden] { display: none; }
 
 .post-tags {
   display: flex;
@@ -223,30 +220,26 @@ footer {
   font-size: 0.88rem;
 }
 
-.post-tags a {
-  text-decoration: none;
-}
-
-.post-tags a::before {
-  content: '#';
-}
-
-.post-tags a:hover {
-  text-decoration: underline;
-}
-
+.post-tags a { text-decoration: none; }
+.post-tags a::before { content: '#'; }
+.post-tags a:hover { text-decoration: underline; }
 
 .text-page > .post-tags {
   max-width: 650px;
   margin: 48px 0 0 190px;
 }
 
-@media (max-width: 680px) {
-  .text-page > .post-tags {
-    margin-left: 0;
-  }
+.card-download {
+  display: block;
+  width: fit-content;
+  max-width: 650px;
+  margin: 22px 0 0 190px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-decoration: none;
 }
 
+.card-download:hover { color: var(--accent); }
 
 .prose mark {
   padding: 0 0.12em;
@@ -290,11 +283,12 @@ footer {
 }
 
 .prose th:first-child,
-.prose td:first-child {
-  padding-left: 0;
-}
+.prose td:first-child { padding-left: 0; }
 
 .prose th:last-child,
-.prose td:last-child {
-  padding-right: 0;
+.prose td:last-child { padding-right: 0; }
+
+@media (max-width: 680px) {
+  .text-page > .post-tags,
+  .card-download { margin-left: 0; }
 }

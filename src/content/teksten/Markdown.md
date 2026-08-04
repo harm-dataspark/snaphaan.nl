@@ -11,7 +11,9 @@ Om te kijken hoeveel ==🟢markdown== wordt ondersteund. Sommige teksten zijn **
 Sommige titels moeten iets kleiner, zoals hierboven. Maar vraag is of dat ook werkt.
 
 En soms wil je een divider om een nieuwe sectie aan te geven.
+
 ---
+
 Als je wil linken naar een andere pagina, gebruik je een hyperlink zoals deze: bekijk nu dataspark.nl
 
 ### Lijsten

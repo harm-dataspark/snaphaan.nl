@@ -160,8 +160,12 @@ h1 {
 .about-page h1 { max-width: 650px; }
 .about-page .prose { margin-top: 56px; }
 
-.signature {
+.prose .closing-line {
   margin-top: 2.4em;
+}
+
+.signature {
+  display: inline-block;
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1;

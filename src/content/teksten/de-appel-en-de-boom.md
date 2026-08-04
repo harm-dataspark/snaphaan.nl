@@ -1,7 +1,7 @@
 ---
 title: De appel en de boom
-description: Jong geleerd, oud gedaan
-date: 2026-08-03
+description: Over wat we meekrijgen en doorgeven
+date: 2026-08-04
 type: gedicht
 tags:
   - familie

@@ -246,3 +246,55 @@ footer {
     margin-left: 0;
   }
 }
+
+
+.prose mark {
+  padding: 0 0.12em;
+  color: inherit;
+  background: #e8dba8;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.prose u {
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+}
+
+.prose hr {
+  margin: 2.6em 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.prose table {
+  width: 100%;
+  margin: 1.8em 0 2.2em;
+  border-collapse: collapse;
+  font-size: 0.96em;
+  line-height: 1.45;
+}
+
+.prose th,
+.prose td {
+  padding: 0.6em 0.8em;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  border-bottom-color: var(--ink);
+  font-weight: 600;
+}
+
+.prose th:first-child,
+.prose td:first-child {
+  padding-left: 0;
+}
+
+.prose th:last-child,
+.prose td:last-child {
+  padding-right: 0;
+}

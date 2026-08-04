@@ -59,14 +59,14 @@ function plainText(markdown: string) {
 }
 
 function typography(text: string, markdown: string) {
-  if (/^\|.+\|$/m.test(markdown)) return { body: 32, lineHeight: 1.35 };
+  if (/^\|.+\|$/m.test(markdown)) return { body: 32, lineHeight: 1.35, gap: 24 };
   if (/^(?:[-*+] |\d+[.)] )/m.test(markdown) && text.length > 180) {
-    return { body: 36, lineHeight: 1.38 };
+    return { body: 36, lineHeight: 1.38, gap: 26 };
   }
-  if (text.length > 700) return { body: 32, lineHeight: 1.35 };
-  if (text.length > 400) return { body: 38, lineHeight: 1.4 };
-  if (text.length > 220) return { body: 44, lineHeight: 1.45 };
-  return { body: 54, lineHeight: 1.26 };
+  if (text.length > 850) return { body: 32, lineHeight: 1.35, gap: 24 };
+  if (text.length > 600) return { body: 36, lineHeight: 1.38, gap: 26 };
+  if (text.length > 400) return { body: 42, lineHeight: 1.38, gap: 28 };
+  return { body: 48, lineHeight: 1.35, gap: 32 };
 }
 
 function span(children: CardNode | CardNode[], style: Record<string, unknown> = {}): CardNode {
@@ -263,7 +263,7 @@ export const GET: APIRoute = async ({ props }) => {
             type: 'div',
             props: {
               style: {
-                display: 'flex', flexDirection: 'column', gap: `${Math.max(type.body * 0.48, 16)}px`,
+                display: 'flex', flexDirection: 'column', gap: `${type.gap}px`,
                 marginTop: '64px', fontSize: `${type.body}px`, fontWeight: 400, lineHeight: type.lineHeight,
               },
               children: blocks(tokens, type.body),

@@ -1,4 +1,4 @@
-# snaphaan.nl
+# harmsnaphaan.nl
 
 Een minimalistische persoonlijke website voor gedichten, gedachten en verhalen, gebouwd met Astro en gepubliceerd via GitHub Pages.
 
@@ -16,7 +16,7 @@ Deze README is ook de praktische handleiding voor het schrijven en publiceren va
 De bestandsnaam bepaalt de URL. `mijn-nieuwe-verhaal.md` wordt bijvoorbeeld:
 
 ```text
-https://snaphaan.nl/teksten/mijn-nieuwe-verhaal/
+https://harmsnaphaan.nl/teksten/mijn-nieuwe-verhaal/
 ```
 
 ## Compleet sjabloon
@@ -206,13 +206,13 @@ Tijdens de build wordt dan automatisch een PNG van **1080 × 1350 pixels** gemaa
 Op de tekstpagina verschijnt onderaan de link **Download kaart**. Het bestand is ook rechtstreeks beschikbaar via:
 
 ```text
-https://snaphaan.nl/cards/bestandsnaam.png
+https://harmsnaphaan.nl/cards/bestandsnaam.png
 ```
 
 Een bestand met de naam `de-appel-en-de-boom.md` krijgt dus:
 
 ```text
-https://snaphaan.nl/cards/de-appel-en-de-boom.png
+https://harmsnaphaan.nl/cards/de-appel-en-de-boom.png
 ```
 
 De kaartgenerator neemt de ondersteunde Markdown-opmaak mee. Cursief, vet, onderstrepen, doorstrepen, markeren, links, tussenkoppen, scheidingslijnen, lijsten en tabellen krijgen ook op de kaart een passende vorm in dezelfde beeldtaal. Opmaak die op een kaart niet interactief kan zijn, zoals een link, wordt alleen visueel weergegeven.
@@ -233,7 +233,7 @@ De tekst wordt dan wel in GitHub bewaard, maar niet gepubliceerd. Verander dit l
 
 ## Bewuste ontwerpkeuzes
 
-- **Lettertype:** Crimson Pro, gekozen omdat het rustig leest voor zowel gedichten als langere verhalen en ook geschikt is voor boektekst. De gebruikte letterbestanden worden lokaal vanaf `snaphaan.nl` geladen; de website maakt hiervoor geen verbinding met Google Fonts.
+- **Lettertype:** Crimson Pro, gekozen omdat het rustig leest voor zowel gedichten als langere verhalen en ook geschikt is voor boektekst. De gebruikte letterbestanden worden lokaal vanaf `harmsnaphaan.nl` geladen; de website maakt hiervoor geen verbinding met Google Fonts.
 - **Kleur:** warm papier, donkere inkt en één gedempt rood accent.
 - **Rode punt:** de punt in `Harm.` is het vaste herkenningsteken op de website, Over-pagina en kaarten.
 - **Rust:** tags staan onder de tekst; opmaak en tabellen zijn terughoudend; markeringen hebben één vaste kleur.
@@ -273,6 +273,6 @@ npm run build
 
 ## Publicatie en hosting
 
-Iedere wijziging op de `main`-branch start automatisch de workflow **Deploy to GitHub Pages**. Een groene workflow betekent dat de site is gebouwd en gepubliceerd. De website draait op `https://snaphaan.nl` en `www` verwijst naar hetzelfde domein.
+Iedere wijziging op de `main`-branch start automatisch de workflow **Deploy to GitHub Pages**. Een groene workflow betekent dat de site is gebouwd en gepubliceerd. De website draait op `https://harmsnaphaan.nl` en `www` verwijst naar hetzelfde domein.
 
 De DNS-records staan bij TransIP. De e-mailrecords voor Fastmail staan los van de website en mogen bij wijzigingen aan de website-DNS niet worden verwijderd.

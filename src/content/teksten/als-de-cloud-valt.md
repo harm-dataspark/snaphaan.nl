@@ -1,12 +1,12 @@
 ---
 title: Als de cloud valt
-description: Over wat we zelf nog kunnen als waarop we bouwen en vertrouwen wegvalt. 
-date: 2026-08-06
+description: Over wat we zelf nog kunnen als waarop we steeds meer bouwen en vertrouwen wegvalt. 
+date: 2026-08-08
 type: gedicht
 tags:
   - technologie
 card: true
-draft: true
+draft: false
 ---
 
 *Wat als…*

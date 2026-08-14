@@ -142,11 +142,25 @@ function inlineFromBlocks(tokens: MarkdownToken[] = []): CardNode[] {
 }
 
 function paragraph(children: CardNode[], style: Record<string, unknown> = {}): CardNode {
+  const lines: CardNode[][] = [[]];
+
+  for (const child of children) {
+    if (child === '\n') {
+      lines.push([]);
+    } else {
+      lines[lines.length - 1].push(child);
+    }
+  }
+
   return {
     type: 'div',
     props: {
-      style: { display: 'flex', ...style },
-      children: span(children, { whiteSpace: 'pre-wrap' }),
+      style: {
+        display: 'flex',
+        flexDirection: lines.length > 1 ? 'column' : 'row',
+        ...style,
+      },
+      children: lines.map((line) => span(line, { whiteSpace: 'pre-wrap' })),
     },
   };
 }
@@ -300,7 +314,7 @@ export const GET: APIRoute = async ({ props }) => {
     headers: {
       'Content-Type': 'image/png',
       'Content-Disposition': `inline; filename="${tekst.id}.png"`,
-      'Cache-Control': 'public, max-age=31536000, immutable',
+      'Cache-Control': 'public, max-age=0, must-revalidate',
     },
   });
 };

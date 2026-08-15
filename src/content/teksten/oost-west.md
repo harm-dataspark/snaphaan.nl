@@ -6,7 +6,7 @@ type: gedicht
 tags:
   - familie
 card: true
-draft: false
+draft: true
 ---
 
 Jij  

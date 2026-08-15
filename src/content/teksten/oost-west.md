@@ -23,4 +23,4 @@ De lessen en de rest
 
 Wensen wij  
 Je een mooie toekomst  
-Na je reis van Oos(t) naar West  
+Na je reis van Oost naar West  

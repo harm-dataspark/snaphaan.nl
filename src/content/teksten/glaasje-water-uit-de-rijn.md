@@ -14,13 +14,15 @@ De Rijn is, net als de Maas, een belangrijke leverancier van ons drinkwater in N
 
 Het water uit de rivieren is, op het moment dat het Nederland heeft bereikt, niet geschikt om direct te consumeren. Voordat het bij ons uit de kraan komt, wordt het daarom zorgvuldig gereinigd door drinkwaterbedrijven. Een proces dat weken tot maanden kan duren.
 
-Met data doen we eigenlijk iets vergelijkbaars.
+Met data deden we lange tijd iets vergelijkbaars. We haalden gegevens uit bronsystemen, brachten ze samen en maakten ze geschikt voor rapportages en analyses.
+
+Maar door de opkomst van AI lijken we die tussenstap steeds vaker te willen overslaan.
 
 De laatste tijd hoor en zie ik steeds vaker dat mensen bedrijfskritische beslissingen willen nemen op basis van data die rechtstreeks uit de bron komt. En dat terwijl brondata en bruikbare informatie niet hetzelfde zijn.
 
 Het probleem is daarbij niet eens dat de data in een bronsysteem per definitie fout is. Een order in je ERP-systeem kan volkomen correct zijn. Een deal in je CRM ook. Maar voordat je op basis van duizenden van die orders en deals uitspraken kunt doen over bijvoorbeeld je brutomarge, cashflow of *monthly recurring revenue*, is er vaak meer nodig.
 
-En juist daar ontstaat door de opkomst van AI iets interessants.
+En juist daar wordt het interessant.
 
 ## Rechtstreeks naar de bron
 
@@ -56,17 +58,9 @@ Maar wat als in het bronsysteem alleen de inkoopprijs staat, terwijl binnen het 
 
 Of misschien moeten bepaalde klanten worden samengevoegd. Sommige omzetrekeningen juist niet worden meegenomen. Intercompany-transacties worden uitgesloten. Of abonnementen met een bepaalde status tellen binnen jullie definitie van MRR anders mee.
 
-In vrijwel alle dashboards die wij de afgelopen tien jaar hebben gemaakt, hebben we ergens bedrijfsspecifieke logica toegepast. Soms heel eenvoudig, soms behoorlijk complex.
+In vrijwel alle dashboards waar ik de afgelopen 10 jaar aan heb gewerkt, is ergens bedrijfsspecifieke logica toegepast. Soms heel eenvoudig, soms behoorlijk complex.
 
-Zonder die logica is de onderliggende data niet noodzakelijk fout. Maar het antwoord op de bedrijfsvraag kan dat wel zijn.
-
-En natuurlijk kun je die logica uitleggen aan een AI-model. Je kunt een uitgebreide prompt maken waarin precies staat hoe de brutomarge moet worden berekend.
-
-Maar dan ontstaat een nieuwe vraag: waar leg je die definitie vast?
-
-Want als Finance morgen dezelfde vraag aan ChatGPT stelt, Sales hem aan Claude stelt en het management naar een dashboard in Power BI of Qlik kijkt, wil je niet drie verschillende definities van brutomarge hebben.
-
-Businesslogica hoort wat mij betreft daarom niet alleen in een prompt thuis. Je wilt die logica centraal vastleggen, zodat iedere toepassing dezelfde definitie gebruikt.
+Zonder die logica is de onderliggende data niet noodzakelijk fout. Maar het antwoord op de bedrijfsvraag kan dat wel zijn. Tussen correcte brondata en een correct antwoord zit dus vrijwel altijd een vertaalslag.
 
 ## 2. Security en privacy
 
@@ -96,21 +90,19 @@ API's van CRM- en ERP-systemen zijn bovendien in de eerste plaats gebouwd om met
 
 Waarom zou je diezelfde data iedere keer opnieuw uit de Rijn pompen als je haar ook één keer kunt opslaan op een plek die juist voor analyse is bedoeld?
 
-## 4. Eén definitie van de waarheid
+## 4. Eén gedeelde definitie
 
-Dit vind ik misschien nog wel het belangrijkste punt.
+Zelfs als een AI-model de juiste businesslogica kan toepassen, blijft de vraag waar die logica wordt vastgelegd en beheerd.
 
-Stel dat Finance aan ChatGPT vraagt wat de MRR is. Sales stelt dezelfde vraag aan Claude. Het management bekijkt de MRR in een Power BI-dashboard.
+Want als Finance morgen dezelfde vraag aan ChatGPT stelt, Sales hem aan Claude stelt en het management naar een dashboard in Power BI of Qlik kijkt, wil je niet drie verschillende definities van brutomarge hebben.
 
-Krijgen ze dan allemaal hetzelfde antwoord?
-
-Als iedere toepassing rechtstreeks naar de bron gaat en vervolgens zelf moet bepalen welke records nodig zijn en welke businesslogica moet worden toegepast, creëer je meerdere mogelijke versies van dezelfde waarheid.
+Als iedere toepassing rechtstreeks naar de bron gaat en zelf bepaalt welke records nodig zijn en welke businesslogica moet worden toegepast, creëer je meerdere mogelijke versies van dezelfde waarheid.
 
 Dat probleem bestond overigens al lang voordat ChatGPT bestond. We hebben jarenlang Excel-bestanden en dashboards gebouwd waarin dezelfde KPI op verschillende manieren werd berekend.
 
 AI kan dat probleem oplossen, maar het kan het net zo makkelijk groter maken.
 
-Daarom geloof ik dat definities als omzet, brutomarge, MRR, churn of actieve klant op één centrale plek moeten worden vastgelegd.
+Daarom horen definities als omzet, brutomarge, MRR, churn of actieve klant wat mij betreft niet alleen in een prompt thuis. Je wilt ze centraal vastleggen, zodat iedere toepassing dezelfde definitie gebruikt.
 
 Niet omdat een AI-model die berekeningen niet kan maken.
 

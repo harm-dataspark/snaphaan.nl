@@ -15,7 +15,7 @@ Berichten, als water
 Het is al zo druk  
 Dus je snoozet ze, voor later  
 
-Of kies je voor gemak  
-En maak je een draai  
+Of je kiest voor gemak  
+En maakt een draai  
 Je antwoordt niet zelf  
 Maar de kunstmatige replai  

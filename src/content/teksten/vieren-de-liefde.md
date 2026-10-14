@@ -5,7 +5,10 @@ date: 2026-10-16
 type: gedicht
 tags:
   - familie
+card: true
+draft: false
 ---
+
 Zij 
 Vieren 
 De liefde 

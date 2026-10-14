@@ -258,55 +258,79 @@ function blocks(tokens: MarkdownToken[], bodySize: number): CardNode[] {
 export const GET: APIRoute = async ({ props }) => {
   const { tekst } = props;
   const markdown = tekst.body ?? '';
-  const type = typography(plainText(markdown), markdown);
+  const baseType = typography(plainText(markdown), markdown);
   const tokens = Lexer.lex(markdown, { gfm: true }) as unknown as MarkdownToken[];
 
-  const svg = await satori(
-    {
-      type: 'div',
-      props: {
-        style: {
-          width: '1080px', height: '1350px', padding: '96px', display: 'flex',
-          flexDirection: 'column', background: colors.paper, color: colors.ink,
-          fontFamily: 'Crimson Pro',
-        },
-        children: [
-          { type: 'div', props: { style: { display: 'flex', fontSize: '64px', fontWeight: 500, lineHeight: 1.05 }, children: tekst.data.title } },
-          { type: 'div', props: { style: { width: '56px', height: '4px', marginTop: '40px', background: colors.accent } } },
-          {
-            type: 'div',
-            props: {
-              style: {
-                display: 'flex', flexDirection: 'column', gap: `${type.gap}px`,
-                marginTop: '64px', fontSize: `${type.body}px`, fontWeight: 400, lineHeight: type.lineHeight,
+  // Measure the actual layout: short lines and stanza breaks can fill a card
+  // even when its character count is low. Keep the usual typography if it fits.
+  let scale = 1;
+  let bodyTop = 0;
+  let bodyHeight = 0;
+  const renderCard = async () => {
+    const type = { ...baseType, body: baseType.body * scale, gap: baseType.gap * scale };
+    return satori(
+      {
+        type: 'div',
+        props: {
+          style: {
+            width: '1080px', height: '1350px', padding: '96px', display: 'flex',
+            flexDirection: 'column', background: colors.paper, color: colors.ink,
+            fontFamily: 'Crimson Pro',
+          },
+          children: [
+            { type: 'div', props: { style: { display: 'flex', flexShrink: 0, fontSize: '64px', fontWeight: 500, lineHeight: 1.05 }, children: tekst.data.title } },
+            { type: 'div', props: { style: { flexShrink: 0, width: '56px', height: '4px', marginTop: '40px', background: colors.accent } } },
+            {
+              type: 'div',
+              props: {
+                style: {
+                  display: 'flex', flexShrink: 0, flexDirection: 'column', gap: `${type.gap}px`,
+                  marginTop: '64px', fontSize: `${type.body}px`, fontWeight: 400, lineHeight: type.lineHeight,
+                },
+                'data-card-part': 'body',
+                children: blocks(tokens, type.body),
               },
-              children: blocks(tokens, type.body),
             },
-          },
-          {
-            type: 'div',
-            props: {
-              style: { marginTop: 'auto', display: 'flex', alignItems: 'baseline', fontSize: '46px', fontWeight: 600, lineHeight: 1 },
-              children: [
-                { type: 'span', props: { children: 'Harm' } },
-                { type: 'span', props: { style: { color: colors.accent }, children: '.' } },
-              ],
+            {
+              type: 'div',
+              props: {
+                style: { flexShrink: 0, marginTop: 'auto', display: 'flex', alignItems: 'baseline', fontSize: '46px', fontWeight: 600, lineHeight: 1 },
+                children: [
+                  { type: 'span', props: { children: 'Harm' } },
+                  { type: 'span', props: { style: { color: colors.accent }, children: '.' } },
+                ],
+              },
             },
-          },
+          ],
+        },
+      },
+      {
+        width: 1080,
+        height: 1350,
+        onNodeDetected: (node) => {
+          if (node.props['data-card-part'] === 'body') {
+            bodyTop = node.top;
+            bodyHeight = node.height;
+          }
+        },
+        fonts: [
+          { name: 'Crimson Pro', data: await regularFont, weight: 400, style: 'normal' },
+          { name: 'Crimson Pro', data: await italicFont, weight: 400, style: 'italic' },
+          { name: 'Crimson Pro', data: await mediumFont, weight: 500, style: 'normal' },
+          { name: 'Crimson Pro', data: await semiboldFont, weight: 600, style: 'normal' },
         ],
       },
-    },
-    {
-      width: 1080,
-      height: 1350,
-      fonts: [
-        { name: 'Crimson Pro', data: await regularFont, weight: 400, style: 'normal' },
-        { name: 'Crimson Pro', data: await italicFont, weight: 400, style: 'italic' },
-        { name: 'Crimson Pro', data: await mediumFont, weight: 500, style: 'normal' },
-        { name: 'Crimson Pro', data: await semiboldFont, weight: 600, style: 'normal' },
-      ],
-    },
-  );
+    );
+  };
+
+  let svg = await renderCard();
+  // Reserve the signature and at least 32px of breathing room below the poem.
+  const availableBodyHeight = 1350 - 96 - 46 - 32 - bodyTop;
+  for (let attempt = 0; bodyHeight > availableBodyHeight; attempt++) {
+    if (attempt === 8) throw new Error(`Card content does not fit: ${tekst.id}`);
+    scale *= availableBodyHeight / bodyHeight * 0.995;
+    svg = await renderCard();
+  }
 
   const png = new Resvg(svg, { fitTo: { mode: 'width', value: 1080 } }).render().asPng();
   const body = png.buffer.slice(png.byteOffset, png.byteOffset + png.byteLength) as ArrayBuffer;

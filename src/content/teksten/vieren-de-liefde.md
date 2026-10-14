@@ -6,7 +6,7 @@ type: gedicht
 tags:
   - familie
 card: true
-draft: true
+draft: false
 ---
 
 Zij   

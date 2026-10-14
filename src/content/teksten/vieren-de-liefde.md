@@ -9,21 +9,21 @@ card: true
 draft: false
 ---
 
-Zij 
-Vieren 
-De liefde 
-Het leven 
+Zij   
+Vieren   
+De liefde   
+Het leven   
 
-Geluk 
-In kleine dingen 
-Samen 
-Te beleven 
+Geluk   
+In kleine dingen   
+Samen   
+Te beleven   
 
-Verbonden 
-In de echt 
-Voor elkaar 
-De ware 
+Verbonden   
+In de echt   
+Voor elkaar   
+De ware   
 
-Vandaag 
-Morgen 
-En nog vele mooie jaren 
+Vandaag   
+Morgen   
+En nog vele mooie jaren   
